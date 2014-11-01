@@ -1,0 +1,6 @@
+*.o
+google_trace.bundle
+Makefile
+*.gem
+*.so
+trace.json
