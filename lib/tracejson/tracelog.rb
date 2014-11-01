@@ -3,6 +3,10 @@ require 'json'
 module TraceJson
   class TraceLog
     def self.to_json
+      to_hash.to_json
+    end
+
+    def self.to_hash
       pid = Process.pid
 
       events = to_a.map {|name, cat, args, ph, ts|
@@ -16,14 +20,13 @@ module TraceJson
           ts: ts / 1000
         }
       }
-      # events.each {|e| p e }
 
       {
         traceEvents: events,
         otherData: {
           version: "ruby #{RUBY_VERSION}"
         }
-      }.to_json
+      }
     end
   end
 end

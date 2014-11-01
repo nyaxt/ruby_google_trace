@@ -1,0 +1,18 @@
+ruby -rtracejson/autoserver example/factapi.rb &
+
+# Enable tracepoints.
+curl localhost:7502/tp_enable
+
+# Perform random computation.
+curl localhost:8080/4000
+
+# Diable tracepoints.
+curl localhost:7502/tp_disable
+
+# Download & view trace.json
+curl -O localhost:7502/trace.json
+
+# Navigate to about:tracing in Chrome, and "Load" trace.json
+# or view trace.html using trace-viewer.
+trace2html trace.json
+xdg-open trace.html
