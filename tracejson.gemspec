@@ -1,6 +1,8 @@
+require File.join(File.dirname(__FILE__), 'lib', 'tracejson', 'version')
+
 Gem::Specification.new do |s|
   s.name = 'tracejson'
-  s.version = '0.1'
+  s.version = TraceJson::VERSION
   s.platform = Gem::Platform::RUBY
   s.summary = 'Trace ruby program and output as Google Trace Event Format'
   s.description = 'Trace ruby program and output as Google Trace Event Format'
